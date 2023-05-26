@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://kit.fontawesome.com/e8fa2e31b4.js" crossorigin="anonymous"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'poppins', cursive;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .top-bar{
+            width: 80%;
+            height: 4rem;
+            background-color: #045F5F;
+            margin-bottom: 20px;
+            display: flex;
+            padding: 0px 20px;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .fa-solid{
+            color:  #008B8B;
+            margin-right: 10px;
+        }
+        .header{
+            width: 80%;
+            height: 200px;
+            background-color:  #045F5F;
+            margin-bottom: 20px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .navbar{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar p{
+            font-size: 30px;
+            font-weight: bold;
+            color: white;
+        }
+        .navbar ul{
+            display: flex;
+            list-style: none;
+        }
+        .navbar ul li a{
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+            padding: 7px 15px;
+        }
+        .navbar ul li a:hover{
+            background-color: white;
+            color: #045F5F;
+            border-radius: 3px;
+        }
+        .navbar-b{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .dropdown{
+            width: 130px;
+            text-align: center;
+            background-color: white;
+            border-radius: 3px;
+        }
+        select{
+            outline: none;
+            border: none;
+            background: none;
+            padding: 7px 10px 7px 0px;
+            color: #045F5F;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        select:hover{
+            color: #333;
+        }
+        .search{
+            width: 500px;
+            background-color: white;
+            height: 45px;
+            border-radius: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px;
+        }
+        .search input{
+            width: 440px;
+            border: none;
+            outline: none;
+            height: 40px;
+        }
+        .cart{
+            display: flex;
+            background-color: white;
+            justify-content: space-between;
+            align-items: center;
+            padding: 7px 10px;
+            border-radius: 3px;
+            width: 80px;
+            font-size: 18px;
+        }
+        .cart p{
+            height: 22px;
+            width: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 22px;
+            background-color: white;
+            color: #045F5F;
+        }
+        .container{
+            width: 80%;
+            display: flex;
+            margin-bottom: 20px;
+        }
+        #root{
+            width: 70%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr) ;
+            grid-gap: 20px;
+        }
+        .sidebar{
+            width: 30%;
+            border-radius: 5px;
+            background-color:  #045F5F;
+            margin-left: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+        .box{
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+        .img-box{
+            width: 50%;
+            height: 170px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .left{
+            width: 50%;
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            margin-left: 60px;
+        }
+        img{
+            max-height: 90%;
+            max-width: 90%;
+            object-fit: cover;
+            object-position: center;
+        }
+        button{
+            border: none;
+            border-radius: 5px;
+            background-color: #045F5F;
+            padding: 10px 25px;
+            cursor: pointer;
+            color: white;
+        }
+        button:hover{
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <dic class="top-bar">
+        <p><i class="fa-solid fa"></i>Welcome to Venice Pena's Online Store!</p>
+        <p><i class="fa-solid fa-envelope"></i>venicepena@gmail.com</p>
+		<p><i class="fa-solid fa-phone"></i>09151270969</p>
+
+    </dic>
+    <div class="header">
+        <div class="navbar">
+            <p>OneSound Instruments</p>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Store</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+        <div class="navbar-b">
+            <div class="search">
+                <input type="search" placeholder="Search...">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <dic class="cart"><i class="fa-solid fa-cart-shopping"></i><p>0</p></dic>
+        </div>
+    </div>
+    <div class="container">
+        <div id="root"></div>
+    </div>
+    <script>
+        const product = [
+            {
+                id: 1,
+                image: 'eg.jpg',
+                title: 'Electric Guitar',
+                price: 'Php 25,000'
+            },
+            {
+                id: 2,
+                image: 'acoustic.jpg',
+                title: 'Acoustic Guitar',
+                price: 'Php 3,500'
+            },
+            {
+                id: 3,
+                image: 'nylon.jpg',
+                title: 'Nylon String (Complete Set)',
+                price: 'Php 300'
+            },
+            {
+                id: 4,
+                image: 'pick.jpg',
+                title: 'Guitar Pick Set',
+                price: 'Php 200'
+            },
+            {
+                id: 5,
+                image: 'strap.jpg',
+                title: 'Guitar Strap',
+                price: 'Php 450'
+            },
+            {
+                id: 6,
+                image: 'hardcase.jpg',
+                title: 'Electric Guitar Hard Case',
+                price: 'Php 5,000'
+            },
+            {
+                id: 7,
+                image: 'drums.png',
+                title: 'E-Drums',
+                price: 'Php 40,000'
+            },
+            {
+                id: 8,
+                image: 'piano.jpg',
+                title: 'Keyboard',
+                price: 'Php 15,000'
+            },
+        ]
+        const categories = [...new Set(product.map((item)=>
+       {return item}))]
+
+       let img = document.getElementById('root')
+       img.innerHTML = categories.map((item)=>
+       {
+        var {image, title, price} = item;
+           return(
+           `<div class="box">
+                <div class="img-box">
+                    <img src=${image}></img>
+                </div>
+                <div class="left">
+                    <p>${title}</p>
+                    <h2>${price}</h2>
+                    <button>Add to Cart</button>    
+                </div>
+            </div>`)
+       }).join('')
+       </script>
+	   
+	   
+</body>
+</html>
